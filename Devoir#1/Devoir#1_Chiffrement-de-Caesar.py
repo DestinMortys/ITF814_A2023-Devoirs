@@ -39,5 +39,3 @@ for i in range(3):
     print(f"Alice: k={k}, c={c}")
     print(f"Eve: c={c}")
     print(f"Bob: k={k}, m={m_bob}")
-
-
