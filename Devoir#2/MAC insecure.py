@@ -27,20 +27,56 @@ def Verif(_cle, _message, received_tag):
     else:
         return 0  # Les tags ne sont pas égaux, la vérification a échoué
 
+# Exécution 1
+key1 = Gen()
+m1 = 0b00100011
+t1 = MAC(key1, m1)
 
-# Exemple d'utilisation
-if __name__ == "__main__":
-    _cle = Gen()
+# Simulation de la transmission par Eve
+m1_eve = 0b10100011  # Eve modifie le message
+t1_eve = t1
 
-    # Exemple de message de 32 bits
-    message = 0b10101010101010101010101010101010
-    _tag = MAC(_cle, message)
+# Bob vérifie le message
+v1 = Verif(key1, m1_eve, t1_eve)
 
-    # Alice envoie le message et le tag à Bob
-    # Bob reçoit le message et le tag, puis les vérifie
-    resultat_verif = Verif(_cle, message, _tag)
+# Traces
+print("Exécution 1:")
+print("Alice: m =", bin(m1), "k =", bin(key1), "t =", bin(t1))
+print("Eve: m =", bin(m1_eve), "t =", bin(t1_eve))
+print("Bob: m =", bin(m1_eve), "k =", bin(key1), "t =", bin(t1_eve), "v =", v1)
 
-    if resultat_verif == 1:
-        print("Vérification réussie : Les tags sont égaux.")
-    else:
-        print("Vérification échouée : Les tags ne sont pas égaux.")
+# Exécution 2
+key2 = Gen()
+m2 = 0b10000100
+t2 = MAC(key2, m2)
+
+# Simulation de la transmission par Eve
+m2_eve = 0b10000101  # Eve modifie le message
+t2_eve = t2
+
+# Bob vérifie le message
+v2 = Verif(key2, m2_eve, t2_eve)
+
+# Traces
+print("\nExécution 2:")
+print("Alice: m =", bin(m2), "k =", bin(key2), "t =", bin(t2))
+print("Eve: m =", bin(m2_eve), "t =", bin(t2_eve))
+print("Bob: m =", bin(m2_eve), "k =", bin(key2), "t =", bin(t2_eve), "v =", v2)
+
+# Exécution 3
+key3 = Gen()
+m3 = 0b000110001001100010110
+t3 = MAC(key3, m3)
+
+# Simulation de la transmission par Eve
+m3_eve = 0b000110001001100011110  # Eve modifie le message
+t3_eve = t3
+
+# Bob vérifie le message
+v3 = Verif(key3, m3_eve, t3_eve)
+
+# Traces
+print("\nExécution 3:")
+print("Alice: m =", bin(m3), "k =", bin(key3), "t =", bin(t3))
+print("Eve: m =", bin(m3_eve), "t =", bin(t3_eve))
+print("Bob: m =", bin(m3_eve), "k =", bin(key3), "t =", bin(t3_eve), "v =", v3)
