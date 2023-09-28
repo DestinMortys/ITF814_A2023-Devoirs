@@ -39,11 +39,13 @@ t1_eve = t1
 # Bob vérifie le message
 v1 = Verif(key1, m1_eve, t1_eve)
 
+print ("--------Réponse (a)------------")
+
 # Traces
 print("Exécution 1:")
-print("Alice: m =", bin(m1), "k =", bin(key1), "t =", bin(t1))
-print("Eve: m =", bin(m1_eve), "t =", bin(t1_eve))
-print("Bob: m =", bin(m1_eve), "k =", bin(key1), "t =", bin(t1_eve), "v =", v1)
+print("Alice: m1 =", bin(m1), "k1 =", bin(key1), "t1 =", bin(t1))
+print("Eve: m1 =", bin(m1_eve), "t1 =", bin(t1_eve))
+print("Bob: m1 =", bin(m1_eve), "k1 =", bin(key1), "t1 =", bin(t1_eve), "v1 =", v1)
 
 # Exécution 2
 key2 = Gen()
@@ -59,9 +61,9 @@ v2 = Verif(key2, m2_eve, t2_eve)
 
 # Traces
 print("\nExécution 2:")
-print("Alice: m =", bin(m2), "k =", bin(key2), "t =", bin(t2))
-print("Eve: m =", bin(m2_eve), "t =", bin(t2_eve))
-print("Bob: m =", bin(m2_eve), "k =", bin(key2), "t =", bin(t2_eve), "v =", v2)
+print("Alice: m2 =", bin(m2), "k2 =", bin(key2), "t2 =", bin(t2))
+print("Eve: m2 =", bin(m2_eve), "t2 =", bin(t2_eve))
+print("Bob: m2 =", bin(m2_eve), "k2 =", bin(key2), "t2 =", bin(t2_eve), "v2 =", v2)
 
 # Exécution 3
 key3 = Gen()
@@ -76,7 +78,8 @@ t3_eve = t3
 v3 = Verif(key3, m3_eve, t3_eve)
 
 # Traces
+
 print("\nExécution 3:")
-print("Alice: m =", bin(m3), "k =", bin(key3), "t =", bin(t3))
-print("Eve: m =", bin(m3_eve), "t =", bin(t3_eve))
-print("Bob: m =", bin(m3_eve), "k =", bin(key3), "t =", bin(t3_eve), "v =", v3)
+print("Alice: m3 =", bin(m3), "k3 =", bin(key3), "t3 =", bin(t3))
+print("Eve: m3 =", bin(m3_eve), "t3 =", bin(t3_eve))
+print("Bob: m3 =", bin(m3_eve), "k3 =", bin(key3), "t3 =", bin(t3_eve), "v3 =", v3)
