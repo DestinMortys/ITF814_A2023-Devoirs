@@ -38,26 +38,25 @@ car le tag généré dépend de la clé et du message spécifique.
 
 --------------Réponse (c)--------------
 
-La fonction \( F(k, x) = x \oplus k \), où \( k \) est une clé de longueur \( n \) et \( x \) est un message de longueur \( n \), n'est pas une fonction pseudo-aléatoire. 
+La fonction F(k,x)=x⊕k, où k est une clé de longueur n et x est un message de longueur n, n'est pas une fonction pseudo-aléatoire. 
 Pour qu'une fonction soit considérée comme pseudo-aléatoire, elle doit avoir certaines propriétés, 
 notamment le fait qu'elle soit difficile à distinguer d'une véritable fonction aléatoire lorsque vous regardez ses sorties pour différentes entrées.
 
-Dans ce cas, la fonction \( F \) n'est pas pseudo-aléatoire pour les raisons suivantes :
+Dans ce cas, la fonction F n'est pas pseudo-aléatoire pour les raisons suivantes :
 
-1. Déterminisme : \( F(k, x) \) est entièrement déterminé par la clé \( k \) et l'entrée \( x \). Cela signifie que si vous connaissez la clé \( k \) et l'entrée \( x \), 
-vous pouvez toujours calculer \( F(k, x) \) de manière déterministe. 
+1. F(k, x) est entièrement déterminé par la clé k et l'entrée x. Cela signifie que si vous connaissez la clé k et l'entrée x, 
+vous pouvez toujours calculer F(k, x) de manière déterministe. 
 Une véritable fonction pseudo-aléatoire produirait des sorties imprévisibles et non déterministes à partir d'entrées données, ce qui n'est pas le cas ici.
 
-2. Absence de complexité algorithmique : La fonction \( F \) a une complexité algorithmique très basse. 
-Elle se réduit simplement à une opération XOR (ou OU exclusif), qui est une opération simple et déterministe. 
+2. La fonction F  a une complexité algorithmique très basse. Elle se réduit simplement à une opération XOR (ou OU exclusif), qui est une opération simple et déterministe. 
 Une véritable fonction pseudo-aléatoire devrait être basée sur des opérations mathématiques complexes ou des algorithmes cryptographiques bien étudiés pour être considérée comme pseudo-aléatoire.
 
-3. Faible variabilité : Les sorties de \( F \) sont directement liées aux entrées \( x \) et \( k \) par une opération XOR. 
+3. Les sorties de  F  sont directement liées aux entrées  x  et  k  par une opération XOR. 
 Il n'y a pas de mélange significatif ou d'élément d'incertitude introduit dans les sorties. 
 En revanche, une véritable fonction pseudo-aléatoire présente une variabilité plus importante, 
 ce qui signifie que de petites modifications dans les entrées devraient entraîner des changements significatifs dans les sorties.
 
-En résumé, la fonction \( F(k, x) = x \oplus k \) est déterministe, de faible complexité algorithmique et présente une faible variabilité, 
+En résumé, la fonction F(k,x)=x⊕k est déterministe, de faible complexité algorithmique et présente une faible variabilité, 
 ce qui en fait une fonction peu appropriée pour être considérée comme pseudo-aléatoire. Pour obtenir une fonction pseudo-aléatoire, 
 il est nécessaire d'utiliser des constructions cryptographiques plus sophistiquées et sécurisées, 
 telles que des générateurs de nombres pseudo-aléatoires cryptographiques (CSPRNG) basés sur des algorithmes bien étudiés.
