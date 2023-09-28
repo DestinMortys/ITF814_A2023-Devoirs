@@ -1,0 +1,37 @@
+-----Réponse (b)--------------
+
+Dans chacune des trois exécutions décrites, 
+Eve a la possibilité de modifier le message sans être détectée par le test de vérification effectué par Bob. 
+Cependant, cela dépend du choix de la clé k par Alice et de la modification apportée par Eve.
+
+Exécution 1:
+- Alice génère la clé k1 et crée le message m1 = 0b00100011 avec le tag t1.
+- Eve modifie le message m1_eve à 0b10100011 (en inversant un bit).
+- Bob reçoit m1_eve et t1_eve, puis effectue la vérification. La vérification réussit car il utilise la même clé k1, 
+et le tag t1_eve est correct par rapport au message m1_eve.
+
+Dans cette exécution, Eve a réussi à envoyer un message modifié à Bob sans être détectée.
+
+Exécution 2:
+- Alice génère la clé k2 et crée le message m2 = 0b10000100 avec le tag t2.
+- Eve modifie le message m2_eve à 0b10000101 (en inversant un bit).
+- Bob reçoit m2_eve et t2_eve, puis effectue la vérification. La vérification réussit car il utilise la même clé k2, 
+et le tag t2_eve est correct par rapport au message m2_eve.
+
+Dans cette exécution, Eve a encore réussi à envoyer un message modifié à Bob sans être détectée.
+
+Exécution 3:
+- Alice génère la clé k3 et crée le message m3 = 0b000110001001100010110 avec le tag t3.
+- Eve modifie le message m3_eve à 0b000110001001100011110 (en ajoutant un bit).
+- Bob reçoit m3_eve et t3_eve, puis effectue la vérification. La vérification réussit car il utilise la même clé k3, 
+et le tag t3_eve est correct par rapport au message m3_eve.
+
+Dans cette exécution, Eve a encore réussi à envoyer un message modifié à Bob sans être détectée.
+
+Cependant, il est important de noter que dans chacune de ces exécutions, 
+Eve ne peut réussir à envoyer un message de son choix à Bob que si elle connaît la clé utilisée par Alice. 
+Une fois que la clé est choisie et fixée, Eve peut modifier les messages correspondants à cette clé sans être détectée. 
+Si Eve veut envoyer un message de son choix à Bob après la fin de l'exécution, 
+elle devra connaître la clé k utilisée par Alice pour cette session particulière. 
+Sans la connaissance de la clé, il est très improbable qu'Eve puisse envoyer un message valide à Bob avec succès, 
+car le tag généré dépend de la clé et du message spécifique.
