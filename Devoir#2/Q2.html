@@ -1,0 +1,36 @@
+Commençons par clarifier quelques concepts et notations :
+
+- RSA est un système de cryptographie à clé publique qui repose sur deux nombres premiers, généralement notés p et q.
+- N est le produit de ces deux nombres premiers, c'est-à-dire N = p * q.
+- ϕ(N) est la fonction d'Euler de N, qui est égale à (p - 1) * (q - 1).
+- e est l'exposant de chiffrement RSA, généralement choisi comme un nombre premier avec ϕ(N).
+- d est l'exposant de déchiffrement RSA, qui est l'inverse modulaire de e modulo ϕ(N).
+
+(a) Pour déterminer N, p et q à partir de la sortie de l'algorithme GenModulus(1111), nous avons les valeurs suivantes :
+   - N = 143
+   - p = 11
+   - q = 13
+
+(b) Pour calculer ϕ(N), nous utilisons la formule ϕ(N) = (p - 1) * (q - 1) :
+   ϕ(143) = (11 - 1) * (13 - 1) = 10 * 12 = 120
+
+(c) Si e = 7 est l'exposant de chiffrement RSA, alors nous devons calculer l'exposant de déchiffrement d. 
+L'exposant de déchiffrement est l'inverse modulaire de e modulo ϕ(N), ce qui signifie que d est le nombre tel que (d * e) % ϕ(N) = 1. 
+Nous pouvons utiliser l'algorithme d'Euclide étendu pour calculer d. Voici comment cela fonctionne :
+
+   - Utilisons l'algorithme d'Euclide étendu pour calculer l'inverse modulaire de 7 modulo 120 :
+     gcd(7, 120) = 1 (car 7 est premier avec 120)
+     En utilisant l'algorithme d'Euclide étendu, nous pouvons trouver d = 103.
+
+(d) Pour un schéma de chiffrement public "textbook" RSA, les clés publiques et privées seraient les suivantes :
+
+   - Clé publique (pk) : (N, e)
+     - N est le module de chiffrement.
+     - e est l'exposant de chiffrement.
+
+   - Clé privée (sk) : (N, d)
+     - N est le même module de chiffrement.
+     - d est l'exposant de déchiffrement.
+
+Pour un schéma de signature "textbook" RSA, les clés publiques et privées seraient également les mêmes que celles du chiffrement RSA. 
+Le processus de signature impliquerait d'utiliser la clé privée pour signer un message, tandis que le processus de vérification utiliserait la clé publique pour vérifier la signature.
